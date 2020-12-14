@@ -17,6 +17,9 @@ export default function App() {
             <li>
               <UniversalLink to="instruments">Instruments</UniversalLink>
             </li>
+            <li>
+              <UniversalLink to="trade">Trade</UniversalLink>
+            </li>
           </ul>
         </nav>
 
@@ -31,6 +34,9 @@ export default function App() {
           </Route>
           <Route path="/portfolio">
             <Portfolio />
+          </Route>
+          <Route path="/trade">
+            <Trade />
           </Route>
         </Switch>
       </div>
@@ -48,6 +54,10 @@ function Insights() {
 
 function Instruments() {
   return <h2>Instruments</h2>;
+}
+
+function Trade() {
+  return <h2>Trade</h2>;
 }
 
 function UniversalLink({ to = "", children = "" }) {
