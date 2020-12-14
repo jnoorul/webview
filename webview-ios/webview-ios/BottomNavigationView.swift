@@ -1,6 +1,5 @@
 //
 //  BottomNavigationView.swift
-//  PickMyCollege
 //
 //  Created by NoorulAmeen on 13/12/20.
 //
@@ -9,24 +8,31 @@ import SwiftUI
 import WebKit
 
 struct BottomNavigationView: View {
+    let baseUrl = "http://192.168.86.211:3000"
+    
     var body: some View {
+        let portfolioPage = "\(baseUrl)/portfolio"
+        let insightsPage = "\(baseUrl)/insights"
+        let tradePage = "\(baseUrl)/trade"
+        let instrumentsPage = "\(baseUrl)/instruments"
+        
         TabView {
-             PortfolioView()
+            WebView(request: URLRequest(url: URL(string: portfolioPage)!))
                  .tabItem {
                      Image(systemName: "rectangle.stack.person.crop")
                      Text("Portfolio")
              }
-            WebView(request: URLRequest(url: URL(string: "http://192.168.86.211:3000")!))
+            WebView(request: URLRequest(url: URL(string: insightsPage)!))
                  .tabItem {
                      Image(systemName: "lightbulb")
                      Text("Insights")
              }
-             Text("Trade")
+            WebView(request: URLRequest(url: URL(string: tradePage)!))
                  .tabItem {
                      Image(systemName: "arrow.left.arrow.right")
                      Text("Trade")
              }
-            Text("Instruments")
+            WebView(request: URLRequest(url: URL(string: instrumentsPage)!))
                 .tabItem {
                     Image(systemName: "doc.text.magnifyingglass")
                     Text("Instruments")
